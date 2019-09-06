@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        table {
+            border-collapse: collapse
+        }
+        
+        .detail_tb {
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        
+        .detail_tb .fied_header {
+            height: 38px;
+            line-height: 38px;
+            border-left: none;
+            border-bottom: 1px solid #ccc;
+            background-color: #ececec;
+        }
+        
+        .detail_tb .fied_header th {
+            text-align: center;
+            border-right: 1px solid #ccc;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .detail_tb .fied_header th input {
+            vertical-align: middle;
+        }
+        
+        .detail_tb tr {
+            height: 38px;
+            line-height: 38px;
+            border-left: none;
+            border-bottom: 1px solid #ccc;
+            background-color: #fff;
+        }
+        
+        .detail_tb tr td {
+            text-align: center;
+            border-right: 1px solid #ccc;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .detail_tb tr td input {
+            float: left;
+            margin: 12px 5px 0 10px;
+        }
+        
+        .detail_tb tr td span {
+            float: left;
+        }
+        
+        .detail_tb tr td select {
+            display: inline-block;
+            width: 90px;
+            height: 24px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table class="detail_tb">
+        <thead>
+            <tr class="fied_header">
+                <th width="65"><input type="checkbox" value="number" id="number"> 序号</th>
+                <th width="110">孩子姓名</th>
+                <th width="130">家长电话</th>
+                <th width="110">介绍人孩子姓名</th>
+                <th width="130">介绍人电话</th>
+                <th width="150">报名时间</th>
+                <th width="100">分组情况</th>
+                <th width="100">拉新数量</th>
+                <th width="100">是否签到</th>
+                <th width="100">是否发奖</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td width="65"><input type="checkbox" value="" id=""><span>1</span></td>
+                <td width="110">张三</td>
+                <td width="130">13888888888</td>
+                <td width="110">李四</td>
+                <td width="130">13888888888</td>
+                <td width="150">2016/08/6 21:00</td>
+                <td width="100">
+                    <select name="" id="">
+						<option value="">未分组</option>
+						<option value="">1</option>
+						<option value="">2</option>
+					</select>
+                </td>
+                <td width="100">33</td>
+                <td width="100">是</td>
+                <td width="100">
+                    <select name="" id="">
+						<option value="">否</option>
+						<option value="">奖品1</option>
+						<option value="">奖品2</option>
+					</select>
+                </td>
+            </tr>
+            <tr>
+                <td width="65"><input type="checkbox" value="" id=""><span>2</span></td>
+                <td width="110">张四</td>
+                <td width="130">13888888888</td>
+                <td width="110">李四</td>
+                <td width="130">13888888888</td>
+                <td width="150">2016/08/6 21:00</td>
+                <td width="100">
+                    <select name="" id="">
+						<option value="">未分组</option>
+						<option value="">1</option>
+						<option value="">2</option>
+					</select>
+                </td>
+                <td width="100">33</td>
+                <td width="100">是</td>
+                <td width="100">
+                    <select name="" id="">
+						<option value="">否</option>
+						<option value="">奖品1</option>
+						<option value="">奖品2</option>
+					</select>
+                </td>
+            </tr>
+            <tbody>
+    </table>
+
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        // 全选和反选
+        $("#number").click(function() {
+            var isChecked = $("#number").prop("checked");
+            $("#tbody input").prop("checked", isChecked);
+        })
+
+        // 单独选项控制全选
+        $("#tbody input").click(function() {
+            var allLength = $("#tbody input").length;
+            var checkedLength = $("#tbody input:checked").length;
+            if (allLength == checkedLength) {
+                $("#number").prop("checked", true);
+            } else {
+                $("#number").prop("checked", false);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
